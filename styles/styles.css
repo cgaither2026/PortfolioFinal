@@ -7,8 +7,8 @@ h1 {
 	border: 2px solid black; /* Adds border to all header 1 tags */
 	background-color: hsl(350, 100%, 88%); /* Changes all header 1 tags to be pink */
 	text-align: center; /* Centers all header 1 tags text */
-	font-size: 30px; /* Changes all header 1 tags text to be 30 pixels big */
 	font-family: 'Orbitron';
+	font-size: 30px; /* Changes all header 1 tags text to be 30 pixels big */
 }
 a {
 	color: rgb(50, 255, 25); /* Changes all link tags to green */
@@ -112,3 +112,4 @@ footer {
     animation-iteration-count: 1; /* Run the animation only once */
 
 }
+

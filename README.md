@@ -1,1 +1,1 @@
-yeah
+Created under the supervision and guidance of my instructor, used to represent me and what I have accomplished throughout my time both in my coding class and outside of it during my free time. Free to use or glance over if needed.

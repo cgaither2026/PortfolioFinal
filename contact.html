@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="images/contact-icon.png" type="image/x-icon" sizes="16x16 32x32">
+<title>Contact Information</title>
+<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="contacts">
+<h1>Contact Information</h1>
+<nav role="navigation">
+<h2>Navigation</h2>
+<ul>
+<li><a href="index.html">Main</a></li>
+<li><a href="resume.html">Resume</a></li>
+<li><a href="projects.html">Projects</a></li>
+</ul>
+</nav>
+<h2 id="information">Contact Fields &#x1F4C3;</h2>
+<form action="/submit-contact" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+  <br>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  <br>
+  
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" required></textarea>
+  <br>
+  
+  <button type="submit">Send</button>
+</form>
+<h2>Your Location</h2>
+<p>Click the button to get your current location.</p>
+<button id="getLocation">Get Location</button>
+<p id="result"></p>
+<script>const getLocationButton = document.getElementById('getLocation');
+const resultElement = document.getElementById('result');
+getLocationButton.addEventListener('click', () => {
+if ("geolocation" in navigator) {
+navigator.geolocation.getCurrentPosition((position) => {
+const latitude = position.coords.latitude;
+const longitude = position.coords.longitude;
+resultElement.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+});
+} else {
+resultElement.textContent = "Geolocation is not supported by your browser.";
+}
+});</script>
+<h2>Notifications</h2>
+<button id="notifyButton">Show Notification</button>
+<script>
+if (!("Notification" in window)) {
+alert("This browser does not support desktop notifications.");
+}
+function requestNotificationPermission() {
+if (Notification.permission === "default") {
+Notification.requestPermission().then(permission => {
+if (permission === "granted") {
+alert("Notification permission granted!");
+} else if (permission === "denied") {
+alert("Notification permission denied.");
+}
+});
+}
+}
+function showNotification() {
+if (Notification.permission === "granted") {
+const options = {
+body: "This is the body of the notification.",
+icon: "https://via.placeholder.com/100", // Example icon URL
+vibrate: [200, 100, 200], // Vibration pattern (if supported)
+tag: "example-notification" // Tag to prevent duplicate notifications
+};
+const notification = new Notification("Hello, World!", options);
+notification.onclick = () => {
+window.focus();
+alert("Notification clicked!");
+};
+notification.onclose = () => {
+console.log("Notification closed.");
+};
+} else {
+alert("Please grant notification permission first.");
+}
+}
+document.getElementById("notifyButton").addEventListener("click", () => {
+if (Notification.permission === "default") {
+requestNotificationPermission();
+} else {
+showNotification();
+}
+});</script>
+<footer>
+<h2 id="contact">Contact Me &#128203;</h2>
+<p>If you have any questions or concerns, you can Email me at 
+<a href="mailto:cgaither2026@jamesrumsey.net"><em>cgaither2026@jamesrumsey.net</em></a> 
+the specifics.</p>
+<p title="Call me at 555-1234">Or you can call me at: 555-1234</p>
+<p class="adr">Or you can mail to me at:<br>
+<span class="street-address">1404 Winchester Ave.</span><br>
+<span class="locality">Martinsburg</span>, <span class="region">WV</span> <span class="postal-code">25405</span>
+</p>
+</footer>
+</body>
+</html>

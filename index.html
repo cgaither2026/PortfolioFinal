@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/homepage-icon.png" type="image/x-icon" sizes="16x16 32x32">
+<title>Cameron Gaither's Portfolio</title>
+<h1>Welcome to my Portfolio</h1>
+<h2>Aspiring Software Developer &#x1F3AE;</h2>
+<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="main">
+<main>
+<nav role="navigation">
+<h2>Navigation</h2>
+<ul>
+<li><a href="resume.html">Resume</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<header>
+<h3>You have visited this site <span class="counter" id="visit-counter">0</span> times.</h3>
+<script>
+if (localStorage.getItem('visitCount')) {
+let visitCount = parseInt(localStorage.getItem('visitCount'), 10);
+visitCount += 1;
+localStorage.setItem('visitCount', visitCount);
+document.getElementById('visit-counter').textContent = visitCount;
+} else {
+localStorage.setItem('visitCount', 1);
+document.getElementById('visit-counter').textContent = 1;
+}
+</script>
+<img src="images/me.jpg" alt="Photo of me" width="300" class="sliding-element">
+</header>
+<h2>About Me:</h2>
+<p>Welcome to my portfolio, this is my 
+<strong>first</strong> website project! 
+I enjoy cooking <em>food</em>, composing music,
+and coding video games as a hobby. I also listen to different genres of music
+such as <strong>EDM</strong>, <strong>Rock</strong>, <strong>Pop</strong>, 
+and many <i>more</i>. I also own 2 <i>cats</i> that reside with my grandfather, 
+and I do game development during my free time.</p>
+<br>
+<div class="flex-container">
+<h2>Favorite Video to Watch:</h2>
+<iframe 
+width="600" height="350" 
+src="https://www.youtube-nocookie.com/embed/Pp2wbyLoEtM" 
+title="Fear of Cold" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" 
+allowfullscreen rel="noreferrer"></iframe>
+<br>
+<h2>Canvas Drawer: Circle</h2>
+<canvas id="myCanvas" width="400" height="400"></canvas>
+<script>
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+const centerX = canvas.width / 2;
+const centerY = canvas.height / 2;
+const radius = 100;
+ctx.beginPath();
+ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+ctx.fillStyle = 'lightblue';
+ctx.fill();
+ctx.strokeStyle = 'blue';
+ctx.lineWidth = 3;
+ctx.stroke();
+</script>
+</div>
+</main>
+<footer>
+<p>Made with &#x2764; in West Virginia &copy;2025</p>
+</footer>
+</body>
+</html>
